@@ -5,9 +5,12 @@ import co.programacionmaster.ibmobjectstorage.service.ObjectCosService;
 import com.ibm.cloud.objectstorage.services.s3.AmazonS3;
 import com.ibm.cloud.objectstorage.services.s3.model.ListObjectsRequest;
 import com.ibm.cloud.objectstorage.services.s3.model.ObjectListing;
+import com.ibm.cloud.objectstorage.services.s3.model.ObjectMetadata;
 import com.ibm.cloud.objectstorage.services.s3.model.S3Object;
 import com.ibm.cloud.objectstorage.services.s3.model.S3ObjectInputStream;
 import com.ibm.cloud.objectstorage.services.s3.model.S3ObjectSummary;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -43,5 +46,17 @@ public class ObjectCosServiceImpl implements ObjectCosService {
     );
     S3ObjectInputStream s3Input = returned.getObjectContent();
     return new InputStreamResource(s3Input.getDelegateStream());
+  }
+
+  @Override
+  public String uploadObject(
+      String key,
+      InputStream inputStream,
+      int length
+  ) throws IOException {
+    ObjectMetadata metadata = new ObjectMetadata();
+    metadata.setContentLength(length);
+    amazonS3.putObject(ibmCosProperties.getBucketName(), key, inputStream, metadata);
+    return key;
   }
 }

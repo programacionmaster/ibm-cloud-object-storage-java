@@ -1,6 +1,8 @@
 package co.programacionmaster.ibmobjectstorage.service;
 
 import com.ibm.cloud.objectstorage.services.s3.model.S3ObjectSummary;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import org.springframework.core.io.Resource;
 
@@ -20,4 +22,13 @@ public interface ObjectCosService {
    * @return A new {@link Resource} instance
    */
   Resource getObject(String key);
+
+  /**
+   * Upload object.
+   */
+  String uploadObject(
+      String key,
+      InputStream inputStream,
+      int length
+  ) throws IOException;
 }
