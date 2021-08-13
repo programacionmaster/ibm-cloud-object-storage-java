@@ -5,6 +5,7 @@ import co.programacionmaster.ibmobjectstorage.service.FileService;
 import co.programacionmaster.ibmobjectstorage.service.ObjectCosService;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,5 +29,10 @@ public class FileServiceImpl implements FileService {
             )
         )
         .collect(Collectors.toList());
+  }
+
+  @Override
+  public Resource getFileAsResource(String fileName) {
+    return objectCosService.getObject(fileName);
   }
 }
