@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "8a7ed2a0-3fe0-499f-8d8a-e261f079cd03",
+		"name": "IBM Cloud Object Storage Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/files",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"files"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get files - Ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"files"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Aug 2021 17:24:40 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"apariencia_app_00001.png\",\n        \"size\": 161188,\n        \"lastModified\": \"2021-08-10T16:56:51.318+00:00\"\n    },\n    {\n        \"name\": \"apariencia_app_00002.png\",\n        \"size\": 162154,\n        \"lastModified\": \"2021-08-10T16:56:52.921+00:00\"\n    },\n    {\n        \"name\": \"apariencia_app_00003.png\",\n        \"size\": 161775,\n        \"lastModified\": \"2021-08-10T16:56:54.270+00:00\"\n    },\n    {\n        \"name\": \"apariencia_app_00004.png\",\n        \"size\": 162422,\n        \"lastModified\": \"2021-08-10T16:56:55.596+00:00\"\n    },\n    {\n        \"name\": \"apariencia_app_00005.png\",\n        \"size\": 160815,\n        \"lastModified\": \"2021-08-10T16:56:56.873+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Download File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/files/download?name=apariencia_app_00001.png",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"files",
+						"download"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "apariencia_app_00001.png"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Download File - Ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/files/download?name=apariencia_app_00001.png",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"files",
+								"download"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "apariencia_app_00001.png"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename=\"null\""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Aug 2021 17:24:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
