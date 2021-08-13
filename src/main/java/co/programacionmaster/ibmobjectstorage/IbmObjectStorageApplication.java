@@ -3,6 +3,7 @@ package co.programacionmaster.ibmobjectstorage;
 import co.programacionmaster.ibmobjectstorage.config.IbmCosProperties;
 import co.programacionmaster.ibmobjectstorage.service.IbmCosService;
 import co.programacionmaster.ibmobjectstorage.service.impl.IbmCosServiceImpl;
+import co.programacionmaster.ibmobjectstorage.web.rest.FileRestController;
 import com.ibm.cloud.objectstorage.services.s3.AmazonS3;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackageClasses = {
     IbmCosProperties.class,
-    IbmCosServiceImpl.class
+    IbmCosServiceImpl.class,
+    FileRestController.class
 })
 public class IbmObjectStorageApplication {
 
